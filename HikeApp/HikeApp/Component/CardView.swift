@@ -14,7 +14,7 @@ struct CardView: View {
             ZStack {
                 Circle()
                     .fill(
-                        LinearGradient(colors:[Color("ColorIndigoMedium"),Color("ColorSalmonLight")
+                        LinearGradient(colors:[Color.colorIndigoMedium,Color.colorSalmonLight
                                               ],
                                        startPoint:.topLeading,
                                        endPoint: .bottomTrailing
