@@ -13,9 +13,7 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     var body: some View {
-       Image("image-1")
-            .resizable()
-            .scaledToFit()
+       CardView()
     }
 
     private func addItem() {
