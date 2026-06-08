@@ -27,7 +27,13 @@ struct MotionAnimationView: View {
         return CGFloat(Double.random(in: 0.1...2.0))
     }
     // 4. RANDOM SPEED
+    func randomSpeed() -> CGFloat {
+        return CGFloat(Double.random(in: 0.05...1.0))
+    }
     // 5. RANDOM DELAY
+    func randomDelay() -> Double {
+        return Double.random(in: 0...2)
+    }
     
     var body: some View {
         ZStack {
@@ -41,7 +47,11 @@ struct MotionAnimationView: View {
                     .scaleEffect(isAnimating ? randomScale() : 1)
                     .onAppear(perform: {
                         withAnimation(.interpolatingSpring(stiffness: 0.25, damping: 0.25)
-                            .repeatForever()) {
+                        .repeatForever()
+                        .speed(randomSpeed())
+                        .delay(randomDelay())
+                        )
+                        {
                                 isAnimating = true
                             }
                     })
