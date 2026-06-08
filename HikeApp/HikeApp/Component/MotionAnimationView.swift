@@ -23,7 +23,9 @@ struct MotionAnimationView: View {
 
     }
     // 3. RANDOM SCALE
-    
+    func randomScale() -> CGFloat {
+        return CGFloat(Double.random(in: 0.1...2.0))
+    }
     // 4. RANDOM SPEED
     // 5. RANDOM DELAY
     
@@ -36,6 +38,7 @@ struct MotionAnimationView: View {
                     .opacity(0.25)
                     .frame(width:randomSize())
                     .position(x:randomCoordinate(),y:randomCoordinate())
+                    .scaleEffect(isAnimating ? randomScale() : 1)
                     .onAppear(perform: {
                         withAnimation(.interpolatingSpring(stiffness: 0.25, damping: 0.25)
                             .repeatForever()) {
